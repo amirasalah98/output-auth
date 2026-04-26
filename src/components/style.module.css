@@ -1,0 +1,112 @@
+
+.navbar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-color:#000!important;
+    border-bottom:1px solid #cfb361;
+}
+.navbar a {
+  color:#fbfcf1b3!important;
+  transition: .4s;
+   border-bottom: 2px solid transparent;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.navbar .nav-link:hover{
+  border-bottom: 2px solid #cfb361
+}
+.navbar :global(.nav-link.active) {
+  border-bottom: 2px solid #cfb361;
+  color: #cfb361;
+}
+.contactBtn{
+  background-color:#cfb361;
+  color:#f0f2f1;
+  border:1px solid #cfb361;
+  border-radius: 10px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  transition:.3s;
+  border-bottom: 1px solid #cfb361!important;
+
+  
+}
+.contactBtn:hover{
+   background-color: #000;
+  color: #fff;
+
+}
+.navbar :global(.navbar-toggler):hover{
+  border: 1px solid #f0f2f1!important;
+}
+.offcanvasCustom :global(.btn-close) {
+  background-color: white!important;
+}
+
+/* footer */
+.footer {
+  background-color: #000; 
+  color: #f0f2f1;
+  
+   background-image: url("https://res.cloudinary.com/do0eee789/image/upload/v1777124067/pexels-photo-7887851_gldxju.jpg");
+  background-size: cover;
+  height: 400px;
+}
+.heroSecColor{
+    background-color: #000000c3;
+   padding: 60px 0 30px;
+        height: 400px;
+
+}
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.text {
+  color: #94a3b8;
+  margin-top: 10px;
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+}
+
+.links li {
+  margin-bottom: 8px;
+}
+
+.links a {
+  color: #f0f2f1;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.links a:hover {
+  /* color: #ffffff; */
+}
+
+.divider {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 30px 0;
+}
+
+.copy {
+  text-align: center;
+  font-size: 14px;
+  color: #94a3b8;
+}
+@media (max-width: 991px) {
+.offcanvasCustom :global(.nav-link) {
+border-top: 1px solid #94a3b87d;
+}
+.offcanvasCustom .contactBtn{
+width: 100%!important;
+margin-top: 2vw;
+padding: 5px;
+}
+}

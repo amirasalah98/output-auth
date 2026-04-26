@@ -1,0 +1,106 @@
+.scroller {
+  overflow: hidden;
+  width: 50%;
+  margin: auto;
+  padding: 20px 0;
+  position: relative;
+}
+.scroller h5{
+      color: #cfb361;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+/* shared */
+.scroller__inner {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* logos */
+.scroller__inner img {
+  height: 120px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+.scroller::before,
+.scroller::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.scroller::before {
+  left: 0;
+  background: linear-gradient(to right, white, transparent);
+}
+
+.scroller::after {
+  right: 0;
+  background: linear-gradient(to left, white, transparent);
+}
+/* hover only on devices that support it */
+@media (hover: hover) {
+  .scroller__inner img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* ========================= */
+/* 💻 DESKTOP: infinite scroll */
+/* ========================= */
+@media (min-width: 769px) {
+  .scroller__inner {
+    animation: scroll 20s linear infinite;
+    width: max-content;
+  }
+
+  .scroller:hover .scroller__inner {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* ========================= */
+/* 📱 MOBILE: swipe scroll */
+/* ========================= */
+@media (max-width: 768px) {
+  .scroller {
+    overflow: hidden;
+  }
+
+  .scroller__inner {
+    animation: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 16px;
+  }
+
+  .scroller__inner img {
+    height: 35px;
+    scroll-snap-align: center;
+  }
+
+  /* optional: hide scrollbar */
+  .scroller__inner::-webkit-scrollbar {
+    display: none;
+  }
+}
