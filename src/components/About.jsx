@@ -26,20 +26,18 @@ function About(){
         </p>
 
         <p>
-          We didn’t begin as a big agency. Just a small group of creatives
-          who believed that design should do more than look good—it should
-          communicate, inspire, and solve real problems.
+         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
         </p>
 
         <p>
-          Over time, we evolved into a team that blends creativity with
-          technology. From crafting intuitive interfaces to building scalable
-          web solutions, every project we take on is driven by passion and purpose.
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
         </p>
 
         <p>
-          Today, we partner with brands that want to stand out, grow, and
-          create impact. And we’re just getting started.
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
         </p>
       </div>
 
@@ -90,9 +88,9 @@ function About(){
         <h3>Our Mission</h3>
 
         <p>
-          To create digital experiences that combine creativity and technology,
-          helping brands communicate clearly, grow faster, and stand out in a
-          crowded digital world.
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+           when an unknown printer took a galley of type and scrambled it to make a type specimen book.
         </p>
       </div>
 
@@ -105,8 +103,9 @@ function About(){
         <h3>Our Vision</h3>
 
         <p>
-          To become a trusted creative partner for ambitious brands worldwide,
-          known for innovation, thoughtful design, and delivering meaningful impact.
+         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+         
         </p>
       </div>
 

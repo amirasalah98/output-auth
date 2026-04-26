@@ -1,4 +1,6 @@
 import Button from 'react-bootstrap/Button';
+import { useLocation } from "react-router-dom";
+import { useEffect,useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
@@ -10,6 +12,17 @@ import style from './style.module.css'
 
 
 function OffcanvasExample() {
+  const [show, setShow] = useState(false);
+  const location = useLocation();
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // ✅ AUTO CLOSE ON ROUTE CHANGE
+  useEffect(() => {
+    handleClose();
+  }, [location]);
+
   return (
     <>
       <Navbar expand="lg" className={`navbar-dark bg-body-tertiary mb-3 ${style.navbar}`}>
@@ -17,8 +30,8 @@ function OffcanvasExample() {
         <Navbar.Brand href="#" className='d-flex w-50'>
           <img width="80px" src="https://res.cloudinary.com/do0eee789/image/upload/v1776883284/output-logo-removebg-preview_keu08l.png" alt="output-logo" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="offcanvasNavbar" />
-        <Navbar.Offcanvas id="offcanvasNavbar" className={style.offcanvasCustom} placement="end" style={{ backgroundColor: '#000',color: '#f0f2f1' }}>
+        <Navbar.Toggle onClick={handleShow} aria-controls="offcanvasNavbar" />
+        <Navbar.Offcanvas show={show} onHide={handleClose} id="offcanvasNavbar" className={style.offcanvasCustom} placement="end" style={{ backgroundColor: '#000',color: '#f0f2f1' }}>
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>Menu</Offcanvas.Title>
           </Offcanvas.Header>

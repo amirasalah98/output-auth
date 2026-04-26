@@ -1,0 +1,127 @@
+.heroSec, .heroSecColor{
+  height: 300px!important;
+}
+.pricingSection {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #ffffff, #f0f2f1);
+  text-align: center;
+}
+.pricingHeader h5 {
+  color: #cfb361;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.pricingHeader h2 {
+  font-size: 34px;
+  margin-top: 10px;
+}
+
+.pricingHeader p {
+  color: #666;
+  margin-top: 10px;
+}
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 60px;
+}
+.pricingCard {
+  /* background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 20px;
+
+  padding: 40px 25px;
+
+  text-align: center;
+
+  transition: 0.3s ease;
+  position: relative; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 20px;
+
+  padding: 40px 25px;
+  min-height: 420px; /* keeps all boxes equal */
+  position: relative;
+}
+.pricingCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+.popular {
+  border: 2px solid #cfb361;
+  transform: scale(1.05);
+}
+.badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  background: #cfb361;
+  color: white;
+
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.pricingCard h2 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+.pricingCard p {
+  color: #555;
+  font-size: 14px;
+}
+.pricingCard ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.pricingCard ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pricingCard svg {
+  color: #cfb361;
+}
+.pricingBtn {
+ border: 2px solid #cfb361;
+  color: #cfb361;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  margin-top: auto;
+}
+.pricingBtn:hover{
+   background-color: #cfb361;
+  color: #fff;
+}
+.pricingBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+@media (max-width: 992px) {
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .popular {
+    transform: scale(1);
+  }
+}
