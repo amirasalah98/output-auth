@@ -7,7 +7,7 @@
   height: 400px;
 }
 .heroSecColor{
-    background-color: #000000c3;
+    background-color: #011029c3;
     padding: 100px 20px;
         height: 400px;
 
@@ -33,7 +33,7 @@
 /* Primary Button */
 .primaryBtn {
   background-color: #f0f2f1;
-  color: #000;
+  color: #011029;
   padding: 12px 28px;
   border-radius: 8px;
   text-decoration: none;
@@ -45,7 +45,7 @@
 
 .primaryBtn:hover {
     color:#f0f2f1;
-    background-color: #000;
+    background-color: #011029;
     border: 1px solid #f0f2f1;
 }
 
@@ -86,7 +86,7 @@
 .bigTitle{
   font-size: 36px;
   font-weight: 800;
-  color: #000;
+  color: #011029;
 }
 .subtitle {
   color: #666;
@@ -160,7 +160,7 @@
 }
 /* Section */
 .aboutBg{
-  /* background-color: #000; */
+  /* background-color: #011029; */
 
 }
 .aboutSection {
@@ -195,7 +195,7 @@
   text-align: left;
 }
 .title span {
-  color: black; /* subtle accent based on your #f0f2f1 palette */
+  color: #011029; /* subtle accent based on your #f0f2f1 palette */
 }
 
 .aboutText p {
@@ -256,7 +256,7 @@
 .icon {
   width: 45px;
   height: 45px;
-  background: #000;
+  background: #011029;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -341,7 +341,7 @@
 /* .icon {
   width: 45px;
   height: 45px;
-  background: #000;
+  background: #011029;
   color: #fff;
   display: flex;
   align-items: center;

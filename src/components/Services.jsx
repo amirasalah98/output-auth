@@ -231,7 +231,7 @@ function Services(){
                 </div>
                 <div>
                   <h4>Instagram</h4>
-                  <p>@youraccount</p>
+                  <p>@account</p>
                 </div>
               </div>
           

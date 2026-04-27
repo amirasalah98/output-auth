@@ -18,7 +18,6 @@ export default function LogoScroller() {
           <img key={index} src={logo} alt="client logo" />
         ))}
 
-        {/* duplicate for seamless loop */}
         {logos.map((logo, index) => (
           <img key={`dup-${index}`} src={logo} alt="client logo" />
         ))}

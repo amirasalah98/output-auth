@@ -41,7 +41,6 @@ function About(){
         </p>
       </div>
 
-      {/* RIGHT SIDE (visual timeline style) */}
       <div className={style.storySteps}>
 
         <div className={style.step}>
@@ -79,7 +78,6 @@ function About(){
 
     <div className={style.mvGrid}>
 
-      {/* MISSION */}
       <div className={style.mvCard}>
         <div className={style.mvIcon}>
           <FaBullseye />
@@ -94,7 +92,6 @@ function About(){
         </p>
       </div>
 
-      {/* VISION */}
       <div className={`${style.mvCard} ${style.altCard}`}>
         <div className={style.mvIcon}>
           <FaEye />
@@ -224,7 +221,7 @@ function About(){
               </div>
               <div>
                 <h4>Email</h4>
-                <p>hello@yourcompany.com</p>
+                <p>hello@company.com</p>
               </div>
             </div>
         
@@ -234,7 +231,7 @@ function About(){
               </div>
               <div>
                 <h4>Instagram</h4>
-                <p>@youraccount</p>
+                <p>@account</p>
               </div>
             </div>
         

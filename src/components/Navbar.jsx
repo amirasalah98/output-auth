@@ -18,7 +18,6 @@ function OffcanvasExample() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // ✅ AUTO CLOSE ON ROUTE CHANGE
   useEffect(() => {
     handleClose();
   }, [location]);
@@ -31,7 +30,7 @@ function OffcanvasExample() {
           <img width="80px" src="https://res.cloudinary.com/do0eee789/image/upload/v1776883284/output-logo-removebg-preview_keu08l.png" alt="output-logo" />
         </Navbar.Brand>
         <Navbar.Toggle onClick={handleShow} aria-controls="offcanvasNavbar" />
-        <Navbar.Offcanvas show={show} onHide={handleClose} id="offcanvasNavbar" className={style.offcanvasCustom} placement="end" style={{ backgroundColor: '#000',color: '#f0f2f1' }}>
+        <Navbar.Offcanvas show={show} onHide={handleClose} id="offcanvasNavbar" className={style.offcanvasCustom} placement="end" style={{ backgroundColor: '#011029',color: '#f0f2f1' }}>
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>Menu</Offcanvas.Title>
           </Offcanvas.Header>
