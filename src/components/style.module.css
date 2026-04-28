@@ -147,6 +147,7 @@
 .formModal h3{
   color: #f0f2f1;
 }
+
 @media (max-width: 991px) {
 .offcanvasCustom :global(.nav-link) {
 border-top: 1px solid #94a3b87d;
