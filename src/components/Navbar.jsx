@@ -88,7 +88,7 @@ function OffcanvasExample() {
               <Nav.Link as={NavLink } to="/services">Services</Nav.Link>
               <Nav.Link as={NavLink } to="/contact">Contact</Nav.Link>
             </Nav>
-              {!currentUser ? <div className='d-flex gap-2 mt-3'>
+              {!currentUser ? <div className='d-flex gap-2 mt-3 mt-lg-0'>
               <Button className={style.secondaryBtn}  onClick={()=>setShowSignin(true)}>Sign In</Button>
               <Button className={style.secondaryBtn}  onClick={()=>setShowSignup(true)}>Sign Up</Button>
               
