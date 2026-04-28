@@ -20,7 +20,7 @@
   border-bottom: 2px solid #cfb361;
   color: #cfb361;
 }
-.contactBtn{
+/* .contactBtn{
   background-color:#cfb361;
   color:#f0f2f1;
   border:1px solid #cfb361;
@@ -38,6 +38,41 @@
    background-color: #011029;
   color: #fff;
 
+} */
+ .secondaryBtn {
+  border: 2px solid #cfb361;
+  color: #cfb361;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+    border-bottom: 1px solid #cfb361!important;
+    background-color: transparent;
+
+}
+
+.secondaryBtn:hover {
+  background-color: #cfb361;
+  color: #fff;
+  border: 2px solid #cfb361;
+}
+.primaryBtn {
+  background-color: #f0f2f1;
+  color: #011029;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+      border: 1px solid transparent;
+
+}
+
+.primaryBtn:hover {
+    color:#f0f2f1;
+    background-color: #011029;
+    border: 1px solid #f0f2f1;
 }
 .navbar :global(.navbar-toggler):hover{
   border: 1px solid #f0f2f1!important;
@@ -98,6 +133,11 @@
   text-align: center;
   font-size: 14px;
   color: #94a3b8;
+}
+.dashboardMessage{
+  width: 30%;
+  right: 5%;
+  left: 5%;
 }
 @media (max-width: 991px) {
 .offcanvasCustom :global(.nav-link) {
