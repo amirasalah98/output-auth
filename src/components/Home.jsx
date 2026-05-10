@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import LogoScroller from './LogoScroller.jsx';
 import { FaGlobe ,FaRegChartBar,FaLayerGroup,FaMailBulk,
   FaLightbulb ,FaDirections, FaStar,FaEnvelope, FaInstagram ,
-FaBolt, FaUsers, FaPalette} from "react-icons/fa";
+FaBolt, FaUsers, FaPalette,FaPhone,FaLocationArrow,FaChartLine,FaVideo,FaMobileAlt,FaBullhorn} from "react-icons/fa";
+
 import style from './style.module.css'
 import home from './home.module.css'
 
@@ -13,20 +14,21 @@ function Home(){
         <>
         <div className={` ${home.heroSec}`}>
           <div className={home.heroSecColor}>
-  <h1>We Build Exceptional Experiences</h1>
+  <h1>Smart Digital Solutions for Modern Businesses</h1>
 
-  <p>
-    Innovative solutions that transform ideas into reality through design,
-    technology, and creativity
+  <p className='w-75 m-auto'>
+    We help businesses build strong digital foundations, 
+    reach the right audience, and achieve measurable growth through strategy,
+     design, and technology.
   </p>
 
-  <div className={`d-flex justify-content-center ${home.btnGroup}`}>
-    <Link to="/about" className={home.primaryBtn}>
+  <div className={`d-flex justify-content-center py-5 ${home.btnGroup}`}>
+    {/* <Link to="/about" className={home.primaryBtn}>
       Know About Us
-    </Link>
+    </Link> */}
 
     <Link to="/contact" className={`${home.secondaryBtn}`}>
-      Contact Us Now
+      Start Your Project
     </Link>
   </div>
   </div>
@@ -38,22 +40,17 @@ function Home(){
     {/* LEFT SIDE */}
     <div className={home.aboutText}>
       <h1 className={home.title}>
-  We're a team of creatives
-  <span> passionate about innovation</span>
+  OUTPUT
+  <span> is a digital solutions company</span>
 </h1>
 
       <p>
-       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy 
-       text ever since the 1500s, when an unknown printer took a galley of type
-        and scrambled it to make a type specimen book. 
+       focused on delivering high-quality services that combine performance, creativity, and clarity.
       </p>
 
        <p>
-       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy 
-       text ever since the 1500s, when an unknown printer took a galley of type
-        and scrambled it to make a type specimen book. 
+       We work with businesses and startups to transform ideas into effective digital
+        experiences — from brand identity and websites to marketing systems that drive real results.
       </p>
     </div>
 
@@ -77,155 +74,201 @@ function Home(){
       </div>
 
       {/* RIGHT CONTENT */}
-      <div className={home.whyContent}>
-        <h2>Why Choose Us</h2>
-        <p className={home.subtitle}>
-          We combine creativity, strategy, and technology to deliver experiences
-          that truly make an impact.
-        </p>
-
-        <div className={home.whyList}>
-
-          <div className={home.whyItem}>
-            <div className={home.icon}><FaPalette /></div>
-            <div>
-              <h4>Creative Excellence</h4>
-              <p>We design experiences that stand out and connect emotionally.</p>
-            </div>
-          </div>
-
-          <div className={home.whyItem}>
-            <div className={home.icon}><FaBolt /></div>
-            <div>
-              <h4>Fast & Reliable</h4>
-              <p>We deliver high-quality work with speed and precision.</p>
-            </div>
-          </div>
-
-          <div className={home.whyItem}>
-            <div className={home.icon}><FaUsers /></div>
-            <div>
-              <h4>Client Partnership</h4>
-              <p>We work closely with you as a true extension of your team.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
+       <div className={home.whyContent}>
+                        <h2>Why OUTPUT</h2>
+                        <div className={home.whyList}>
+                
+                          <div className={home.whyItem}>
+                            <div className={home.icon}><FaPalette /></div>
+                            <div className='d-flex align-items-center'>
+                              <h4>Clear and structured workflow</h4>
+                            </div>
+                          </div>
+                
+                          <div className={home.whyItem}>
+                            <div className={home.icon}><FaBolt /></div>
+                            <div className='d-flex align-items-center'>
+                              <h4>Focus on quality and performance</h4>
+                            </div>
+                          </div>
+                
+                          <div className={home.whyItem}>
+                            <div className={home.icon}><FaUsers /></div>
+                            <div className='d-flex align-items-center'>
+                              <h4>Practical solutions tailored to your business</h4>
+                            </div>
+                          </div>
+                          <div className={home.whyItem}>
+                            <div className={home.icon}><FaUsers /></div>
+                            <div className='d-flex align-items-center'>
+                              <h4>Reliable delivery and ongoing support</h4>
+                            </div>
+                          </div>
+                          <div className={home.whyItem}>
+                            <div className={home.icon}><FaUsers /></div>
+                            <div className='d-flex align-items-center'>
+                              <h4>Built with long-term growth in mind</h4>
+                            </div>
+                          </div>
+                
+                        </div>
+                      </div>
 
     </div>
   </div>
 </div>
         <div className={` ${home.services}`}>
-  <h5 className={`pt-5 ${home.title}`}>What We Do</h5>
-  <p className={home.bigTitle}>Services Built to Convert</p>
-  <p className={`w-50 m-auto mb-5 ${home.subtitle}`}>
-    Every service is precision-engineered to move prospects 
-    through your funnel and deliver outcomes that matter
-     — revenue, retention, and real growth.
+  <h5 className={`pt-5 ${home.title}`}>Our Work</h5>
+  <p className={home.bigTitle}>We deliver tailored </p>
+  <p className={`w-50 m-auto mb-5 ${home.subtitle}`}>digital solutions across different industries,
+     focusing on quality, consistency, and real business impact.
+
   </p>
 
   <div className={` container ${home.servicesGrid}`}>
-    <div className={home.service}>
-      <div className='d-flex align-items-baseline'>
-      <FaGlobe />
-      <h3 className='px-2'> Design</h3>
+      <div className={home.service}>
+        <div className='d-flex align-items-baseline'>
+        <FaGlobe />
+        <h3 className='px-2'> Website Design & Development</h3>
+        </div>
+        <p>
+          We design and develop modern, responsive websites built to reflect your brand and support your business goals. 
+        </p>
+        <ul>
+          <li>Landing Pages</li>
+          <li>Company Websites</li>
+          <li>E-commerce Platforms</li>
+          <li>Custom Web Solutions</li>
+        </ul>
       </div>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-         dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-      </p>
+  
+      <div className={home.service}>
+        <div className='d-flex align-items-baseline'>
+        <FaBullhorn  />
+        <h3 className='px-2'> Digital Marketing</h3>
+        </div>
+        <p>
+          We create structured marketing strategies designed to increase visibility, generate leads, and support long-term growth.
+        </p>
+        <ul>
+          <li>Social Media Management</li>
+          <li>Paid Advertising (Meta & Google)</li>
+          <li>Content Planning & Strategy</li>
+          <li>Lead Generation</li>
+        </ul>
+      </div>
+  
+      <div className={home.service}>
+        <div className='d-flex align-items-baseline'>
+        <FaMobileAlt  />
+        <h3 className='px-2'> Mobile Applications</h3>
+        </div>
+        <p>
+          We develop scalable mobile applications focused on usability, performance, and long-term value. 
+        </p>
+        <ul>
+          <li>MVP Development</li>
+          <li>Medium & Advanced Applications</li>
+        </ul>
+      </div>
+  
+      {/* <div className={home.service}>
+        <div className='d-flex align-items-baseline'>
+        <FaPalette  />
+        <h3 className='px-2'> Design & Branding</h3>
+        </div>
+        <p>
+         We build visual identities that communicate your brand clearly and consistently.
+        </p>
+        <ul>
+          <li>Logo Design</li>
+          <li>Brand Identity</li>
+          <li>Social Media Design</li>
+          <li>Company Profile</li>
+        </ul>
+      </div> */}
+      {/* <div className={home.service}>
+        <div className='d-flex align-items-baseline'>
+        <FaVideo  />
+        <h3 className='px-2'> Video Production</h3>
+        </div>
+        <p>
+          We produce clean, engaging video content tailored to your audience and platform. 
+        </p>
+        <ul>
+          <li>Short-Form Content</li>
+          <li>Promotional Videos</li>
+        </ul>
+      </div> */}
+      {/* <div className={home.service}>
+        <div className='d-flex align-items-baseline'>
+        <FaChartLine  />
+        <h3 className='px-2'> Sales Solutions</h3>
+        </div>
+       <p>
+          We help businesses structure their sales process and improve conversion. 
+        </p>
+        <ul>
+          <li>Sales Funnels</li>
+          <li>Sales Scripts</li>
+          <li>CRM Setup</li>
+        </ul>
+      </div> */}
     </div>
-
-    <div className={home.service}>
-      <div className='d-flex align-items-baseline'>
-      <FaRegChartBar />
-      <h3 className='px-2'> Design</h3>
-      </div>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-         dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-      </p>
-    </div>
-
-    <div className={home.service}>
-      <div className='d-flex align-items-baseline'>
-      <FaLayerGroup />
-      <h3 className='px-2'> Design</h3>
-      </div>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-         dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-      </p>
-    </div>
-
-    {/* <div className={home.service}>
-      <div className='d-flex align-items-baseline'>
-      <FaLightbulb />
-      <h3 className='px-2'> Design</h3>
-      </div>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-         dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-      </p>
-    </div> */}
-    {/* <div className={home.service}>
-      <div className='d-flex align-items-baseline'>
-      <FaRegChartBar />
-      <h3 className='px-2'> Design</h3>
-      </div>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-         dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-      </p>
-    </div> */}
-    {/* <div className={home.service}>
-      <div className='d-flex align-items-baseline'>
-      <FaMailBulk />
-      <h3 className='px-2'> Design</h3>
-      </div>
-     <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-         dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-      </p>
-    </div> */}
-  </div>
       <Link to="/services" className={` w-100 m-auto  ${home.secondaryBtn}`}>Check out our services</Link>
 
 </div>
 <div className={`container my-5 ${home.splitLine}`}></div>
 <LogoScroller />
   <div className={home.borderedSec}>
-  <h3>Let's Create Something Amazing</h3>
-
-  <p className={home.subtitle}>
-    Ready to bring your vision to life? Get in touch and let's start building together.
-  </p>
-
-  <div className={home.contactList}>
-    
-    <div className={home.contactItem}>
-      <div className={home.icon}>
-        <FaEnvelope />
-      </div>
-      <div>
-        <h4>Email</h4>
-        <p>hello@yourcompany.com</p>
-      </div>
-    </div>
-
-    <div className={home.contactItem}>
-      <div className={home.icon}>
-        <FaInstagram />
-      </div>
-      <div>
-        <h4>Instagram</h4>
-        <p>@youraccount</p>
-      </div>
-    </div>
-
-  </div>
-</div>
+            <h3>Let’s Work Together</h3>
+          
+            <p className={home.subtitle}>
+              If you’re looking for a reliable partner to support your digital growth,
+               we’d be happy to connect.
+            </p>
+          
+            <div className={home.contactList}>
+              <div className={home.contactItem}>
+                <div className={home.icon}>
+                  <FaPhone />
+                </div>
+                <div>
+                  <h4>Phone</h4>
+                  <p>+974 50662121</p>
+                </div>
+              </div>
+              <div className={home.contactItem}>
+                <div className={home.icon}>
+                  <FaEnvelope />
+                </div>
+                <div>
+                  <h4>Email</h4>
+                  <p>output.website@outlook.com</p>
+                </div>
+              </div>
+          
+               <div className={home.contactItem}>
+                <div className={home.icon}>
+                  <FaLocationArrow />
+                </div>
+                <div>
+                  <h4>Location</h4>
+                  <p>Doha, Qatar</p>
+                </div>
+              </div>
+               <div className={home.contactItem}>
+                <div className={home.icon}>
+                  <FaInstagram />
+                </div>
+                <div>
+                  <h4>Instagram</h4>
+                  <Link style={{ color:"black" }} to="https://www.instagram.com/output.qa/" target='_blank'>@output.qa</Link>
+                </div>
+              </div>
+          
+            </div>
+          </div>
         </>
     )
 }

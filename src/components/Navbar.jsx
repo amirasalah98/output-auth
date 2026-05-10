@@ -1,6 +1,7 @@
 import Button from "react-bootstrap/Button";
-import { useLocation, NavLink } from "react-router-dom";
+import { useLocation, NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
@@ -8,7 +9,6 @@ import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Modal from "react-bootstrap/Modal";
 import style from "./style.module.css";
-
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -19,29 +19,54 @@ function OffcanvasExample() {
   const [message, setMessage] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
 
+  const navigate = useNavigate();
   const location = useLocation();
-
-  const admin = {
-    email: "admin@gmail.com",
-    password: "123456",
-    role: "admin",
-    name: "Admin",
-  };
-
-  const getUsers = () =>
-    JSON.parse(localStorage.getItem("users")) || [];
-
-  const saveUsers = (users) =>
-    localStorage.setItem("users", JSON.stringify(users));
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+const showMessage = (text) => {
+  setMessage(text);
 
+  setTimeout(() => {
+    setMessage("");
+  }, 3000); // disappears after 3 seconds
+};
+  // ================= SAFE LOAD USER =================
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+
+    if (!token || !user || user === "undefined") return;
+
+    try {
+      setCurrentUser(JSON.parse(user));
+    } catch (err) {
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
+    }
+  }, []);
+
+  // close offcanvas on route change
   useEffect(() => {
     handleClose();
   }, [location]);
 
-  // SIGNUP FORMIK
+  // ================= LOGOUT (FIXED) =================
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    setCurrentUser(null);
+    showMessage("Logged out successfully");
+
+    setShow(false);
+    setShowSignin(false);
+    setShowSignup(false);
+
+    navigate("/");
+  };
+
+  // ================= SIGNUP =================
   const signupFormik = useFormik({
     initialValues: {
       name: "",
@@ -50,38 +75,40 @@ function OffcanvasExample() {
     },
 
     validationSchema: Yup.object({
-      name: Yup.string()
-        .min(3, "Minimum 3 characters")
-        .required("Name required"),
-
-      email: Yup.string()
-        .email("Invalid email")
-        .required("Email required"),
-
-      password: Yup.string()
-        .min(6, "Minimum 6 characters")
-        .required("Password required"),
+      name: Yup.string().min(3).required("Name required"),
+      email: Yup.string().email().required("Email required"),
+      password: Yup.string().min(6).required("Password required"),
     }),
 
-    onSubmit: (values) => {
-      const users = getUsers();
+    onSubmit: async (values, { setSubmitting, setFieldError, resetForm }) => {
+      try {
+        const res = await axios.post(
+          `${import.meta.env.VITE_API_URL}/api/auth/signup`,
+          values
+        );
 
-      if (users.find((u) => u.email === values.email)) {
-        setMessage("Email already exists");
-        return;
+        localStorage.setItem("token", res.data.token);
+
+        showMessage(res.data.message);
+
+        resetForm();
+        setShowSignup(false);
+        setShowSignin(true);
+      } catch (err) {
+        const data = err.response?.data;
+
+        if (data?.type === "email") {
+          setFieldError("email", data.message);
+        } else {
+          showMessage(data?.message || "Signup failed");
+        }
+      } finally {
+        setSubmitting(false);
       }
-
-      users.push({ ...values, role: "user" });
-      saveUsers(users);
-
-      setMessage("Signup successful");
-      setShowSignup(false);
-      setShowSignin(true);
-      signupFormik.resetForm();
     },
   });
 
-  // SIGNIN FORMIK
+  // ================= SIGNIN =================
   const signinFormik = useFormik({
     initialValues: {
       email: "",
@@ -89,47 +116,43 @@ function OffcanvasExample() {
     },
 
     validationSchema: Yup.object({
-      email: Yup.string()
-        .email("Invalid email")
-        .required("Email required"),
-
-      password: Yup.string().required("Password required"),
+      email: Yup.string().email().required(),
+      password: Yup.string().required(),
     }),
 
-    onSubmit: (values) => {
-      if (
-        values.email === admin.email &&
-        values.password === admin.password
-      ) {
-        setCurrentUser(admin);
-        setMessage("Welcome Admin");
-        setShowSignin(false);
-        return;
-      }
+    onSubmit: async (values, { setSubmitting }) => {
+      try {
+        const res = await axios.post(
+          `${import.meta.env.VITE_API_URL}/api/auth/signin`,
+          values
+        );
 
-      const user = getUsers().find(
-        (u) =>
-          u.email === values.email &&
-          u.password === values.password
-      );
+        const { token, user, message } = res.data;
 
-      if (user) {
+        // IMPORTANT SAFETY CHECK
+        if (!user || !token) {
+          showMessage("Invalid server response");
+          return;
+        }
+
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
+
         setCurrentUser(user);
-        setMessage("Welcome " + user.name);
+        showMessage(message);
+
         setShowSignin(false);
-      } else {
-        setMessage("Invalid credentials");
+      } catch (err) {
+        showMessage(err.response?.data?.message || "Login failed");
+      } finally {
+        setSubmitting(false);
       }
     },
   });
 
-  const logout = () => {
-    setCurrentUser(null);
-    setMessage("Logged out");
-  };
-
   return (
     <>
+      {/* ================= NAVBAR (NO DESIGN CHANGE) ================= */}
       <Navbar
         expand="lg"
         className={`navbar-dark bg-body-tertiary mb-3 ${style.navbar}`}
@@ -150,7 +173,7 @@ function OffcanvasExample() {
             onHide={handleClose}
             placement="end"
             className={style.offcanvasCustom}
-            style={{ backgroundColor: '#011029',color: '#f0f2f1'}}
+            style={{ backgroundColor: "#011029", color: "#f0f2f1" }}
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title>Menu</Offcanvas.Title>
@@ -158,25 +181,16 @@ function OffcanvasExample() {
 
             <Offcanvas.Body>
               <Nav className="ms-auto m-auto">
-                <Nav.Link as={NavLink} to="/">
-                  Home
-                </Nav.Link>
-
-                <Nav.Link as={NavLink} to="/about">
-                  About
-                </Nav.Link>
-
-                <Nav.Link as={NavLink} to="/services">
-                  Services
-                </Nav.Link>
-
-                <Nav.Link as={NavLink} to="/contact">
-                  Contact
-                </Nav.Link>
+                <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+                <Nav.Link as={NavLink} to="/about">About</Nav.Link>
+                <Nav.Link as={NavLink} to="/services">Services</Nav.Link>
+                <Nav.Link as={NavLink} to="/portfolio">Portfolio</Nav.Link>
+                <Nav.Link as={NavLink} to="/contact">Contact</Nav.Link>
               </Nav>
 
+              {/* ================= AUTH SECTION ================= */}
               {!currentUser ? (
-                <div className="d-flex gap-2 mt-3">
+                <div className="d-flex gap-2 mt-3 mt-md-0">
                   <Button
                     className={style.secondaryBtn}
                     onClick={() => setShowSignin(true)}
@@ -192,12 +206,11 @@ function OffcanvasExample() {
                   </Button>
                 </div>
               ) : (
-                <div>
-                  Hello {currentUser.name}
-                  <Button
-                    onClick={logout}
-                    className="ms-2"
-                  >
+                <div className="mt-3">
+                  Hello, {currentUser.name}
+
+                  {/* ================= LOGOUT (NOW ALWAYS VISIBLE) ================= */}
+                  <Button onClick={logout} className={`mx-3 ${style.secondaryBtn}`}>
                     Logout
                   </Button>
                 </div>
@@ -207,7 +220,7 @@ function OffcanvasExample() {
         </Container>
       </Navbar>
 
-      {/* SIGNUP MODAL */}
+      {/* ================= SIGNUP MODAL ================= */}
       <Modal show={showSignup} onHide={() => setShowSignup(false)} centered>
         <Modal.Body className={`p-4 ${style.formModal}`}>
           <h3 className="text-center mb-4">Create Account</h3>
@@ -217,26 +230,16 @@ function OffcanvasExample() {
               name="name"
               placeholder="Name"
               onChange={signupFormik.handleChange}
-              onBlur={signupFormik.handleBlur}
               value={signupFormik.values.name}
             />
-            <b className="text-danger">
-              {signupFormik.touched.name &&
-                signupFormik.errors.name}
-            </b>
 
             <Form.Control
               className="mt-3"
               name="email"
               placeholder="Email"
               onChange={signupFormik.handleChange}
-              onBlur={signupFormik.handleBlur}
               value={signupFormik.values.email}
             />
-            <b className="text-danger">
-              {signupFormik.touched.email &&
-                signupFormik.errors.email}
-            </b>
 
             <Form.Control
               className="mt-3"
@@ -244,41 +247,28 @@ function OffcanvasExample() {
               name="password"
               placeholder="Password"
               onChange={signupFormik.handleChange}
-              onBlur={signupFormik.handleBlur}
               value={signupFormik.values.password}
             />
-            <b className="text-danger">
-              {signupFormik.touched.password &&
-                signupFormik.errors.password}
-            </b>
 
-            <Button
-              type="submit"
-              className={`w-100 mt-3 ${style.secondaryBtn}`}
-            >
+            <Button type="submit" className={`w-100 mt-4 ${style.secondaryBtn}`}>
               Create Account
             </Button>
           </Form>
         </Modal.Body>
       </Modal>
 
-      {/* SIGNIN MODAL */}
+      {/* ================= SIGNIN MODAL ================= */}
       <Modal show={showSignin} onHide={() => setShowSignin(false)} centered>
         <Modal.Body className={`p-4 ${style.formModal}`}>
-          <h3 className="text-center mb-4">Welcome Back</h3>
+          <h3 className="text-center mb-4">Sign In</h3>
 
           <Form onSubmit={signinFormik.handleSubmit}>
             <Form.Control
               name="email"
               placeholder="Email"
               onChange={signinFormik.handleChange}
-              onBlur={signinFormik.handleBlur}
               value={signinFormik.values.email}
             />
-            <b className="text-danger">
-              {signinFormik.touched.email &&
-                signinFormik.errors.email}
-            </b>
 
             <Form.Control
               className="mt-3"
@@ -286,23 +276,22 @@ function OffcanvasExample() {
               name="password"
               placeholder="Password"
               onChange={signinFormik.handleChange}
-              onBlur={signinFormik.handleBlur}
               value={signinFormik.values.password}
             />
-            <b className="text-danger">
-              {signinFormik.touched.password &&
-                signinFormik.errors.password}
-            </b>
 
-            <Button
-              type="submit"
-              className={`w-100 mt-3 ${style.secondaryBtn}`}
-            >
+            <Button type="submit" className={`w-100 mt-4 ${style.secondaryBtn}`}>
               Login
             </Button>
           </Form>
         </Modal.Body>
       </Modal>
+
+      {/* ================= MESSAGE ================= */}
+     {message && (
+  <div className={style.messageCard}>
+    {message}
+  </div>
+)}
     </>
   );
 }

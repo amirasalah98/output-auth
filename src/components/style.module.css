@@ -147,7 +147,43 @@
 .formModal h3{
   color: #f0f2f1;
 }
+.messageCard {
+  position: fixed;
+  top: 5%;
+  right: 20%;
+  left: 20%;
+  background: #f0f2f1;
+  color: #011029;
+  padding: 12px 18px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
 
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* fade out animation */
+.messageCard.fade-out {
+  animation: fadeOut 0.4s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
 @media (max-width: 991px) {
 .offcanvasCustom :global(.nav-link) {
 border-top: 1px solid #94a3b87d;

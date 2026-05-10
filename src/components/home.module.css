@@ -4,12 +4,12 @@
   margin: auto;
   background-image: url("https://res.cloudinary.com/do0eee789/image/upload/v1777124067/pexels-photo-7887851_gldxju.jpg");
   background-size: cover;
-  height: 400px;
+  height: 450px;
 }
 .heroSecColor{
     background-color: #011029c3;
     padding: 100px 20px;
-        height: 400px;
+        height: 450px;
 
 }
 .heroSec h1 {
@@ -101,12 +101,13 @@
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 15px;
+  color: #011029;
 }
 
 .service p {
   font-size: 16px;
   line-height: 1.8;
-  color: #444;
+  /* color: #444; */
   /* max-width: 600px; */
 }
 .services {
@@ -116,7 +117,9 @@
   /* text-align: center; */
 }
 
-
+.service li{
+  color: #555;
+}
 
 .subtitle {
   color: #666;
@@ -192,7 +195,7 @@
   letter-spacing: -0.02em;
   text-align: left;
 }
-.title span {
+.aboutText span {
   color: #011029; /* subtle accent based on your #f0f2f1 palette */
 }
 
@@ -263,6 +266,7 @@
 .feature h3 {
   margin-bottom: 5px;
   font-size: 18px;
+  color: #011029;
 }
 
 .feature p {
@@ -299,6 +303,7 @@
   font-weight: 700;
   margin-bottom: 12px;
   letter-spacing: -0.02em;
+  color: #011029;
 }
 
 .borderedSec .subtitle {
@@ -478,8 +483,13 @@
 
   .borderedSec h3 {
     font-size: 24px;
+    z-index: 1000;
+    position: inherit;
   }
-
+.borderedSec .subtitle{
+      z-index: 1000;
+    position: inherit;
+}
   .contactList {
     flex-direction: column;
     align-items: stretch;
@@ -514,10 +524,10 @@
     text-align: cgitenter;
   }
   .heroSec {
-  height: 500px;
+  height: 550px;
 }
 .heroSecColor{
-        height: 500px;
+        height: 550px;
 
 }
 }

@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import { FaEnvelope, FaInstagram,FaBullseye, FaEye,
-  FaLightbulb, FaHandshake, FaRocket, FaHeart} from "react-icons/fa";
+  FaLightbulb, FaHandshake, FaRocket, FaHeart,FaPhone,FaLocationArrow} from "react-icons/fa";
 import home from "./home.module.css";
 import style from "./about.module.css";
 function About(){
@@ -12,11 +13,35 @@ function About(){
         <h1>Who We Are</h1>
         </div>
       </div>
-<div className={style.storySection}>
+      <div className={`py-5 ${home.aboutBg}`}>
+        <div className={`container ${home.aboutSection}`}>
+        <div>
+      
+          {/* LEFT SIDE */}
+          <div className={`w-100 ${home.aboutText}`}>
+            <h1 className={home.title}>
+        OUTPUT
+        <span> is a digital solutions company</span>
+      </h1>
+      
+            <p style={{maxWidth:"unset"}}>
+             focused on delivering high-quality services that combine performance, creativity, and clarity.
+            </p>
+      
+             <p style={{maxWidth:"unset"}}>
+             We work with businesses and startups to transform ideas into effective digital
+              experiences — from brand identity and websites to marketing systems that drive real results.
+            </p>
+            <p style={{maxWidth:"unset"}}><b>Our approach</b> is to understand the business, define the objective, and deliver solutions that make an impact.</p>
+           <div className='mt-5'> <Link to="/about" className={` w-100 m-auto ${home.secondaryBtn}`}>More About Us</Link> </div>
+          </div>
+        </div>
+      </div>
+      </div>
+{/* <div className={style.storySection}>
   <div className="container">
     <div className={style.storyGrid}>
 
-      {/* LEFT SIDE */}
       <div className={style.storyContent}>
         <h5 className={style.tag}>Our Story</h5>
 
@@ -67,8 +92,8 @@ function About(){
 
     </div>
   </div>
-</div>
-<div className={style.mvSection}>
+</div> */}
+{/* <div className={style.mvSection}>
   <div className="container">
 
     <div className={style.mvHeader}>
@@ -108,130 +133,106 @@ function About(){
 
     </div>
   </div>
-</div>
+</div> */}
+
 <div className={style.valuesSection}>
   <div className="container">
 
     <div className={style.valuesHeader}>
-      <h5>Our Values</h5>
-      <p className={style.valuesHeaderHeading}>What drives everything we do</p>
+      <h5>Our Approach</h5>
+      <p className={style.valuesHeaderHeading}>We follow a structured process to ensure clarity and consistency in every project</p>
     </div>
 
     <div className={style.valuesGrid}>
 
       <div className={style.valueCard}>
         <div className={style.icon}><FaLightbulb /></div>
-        <h3>Creativity</h3>
+        <h3>Discovery</h3>
         <p>
-          We believe great ideas come from bold thinking and a willingness to explore beyond the obvious.
+          Understanding your business, audience, and objectives
         </p>
       </div>
 
       <div className={style.valueCard}>
         <div className={style.icon}><FaHandshake /></div>
-        <h3>Integrity</h3>
+        <h3>Strategy</h3>
         <p>
-          We build trust through honesty, transparency, and doing what’s right for our clients.
+          Defining the right approach and direction
         </p>
       </div>
 
       <div className={style.valueCard}>
         <div className={style.icon}><FaRocket /></div>
-        <h3>Excellence</h3>
+        <h3>Execution</h3>
         <p>
-          We aim for high-quality work in everything we deliver—no shortcuts, no compromises.
+          Designing, building, and delivering the solution
         </p>
       </div>
 
       <div className={style.valueCard}>
         <div className={style.icon}><FaHeart /></div>
-        <h3>Passion</h3>
+        <h3>Optimization</h3>
         <p>
-          We genuinely love what we do, and that energy reflects in every project we create.
+          WMonitoring performance and making continuous improvements
         </p>
       </div>
 
     </div>
   </div>
 </div>
-      {/* <section className={styles.sectionLight}>
-        <h2>Who We Are</h2>
-        <p>
-          We’re a team of designers and developers passionate about building
-          impactful digital products that look great and perform even better.
-        </p>
-      </section> */}
 
-      {/* FEATURES */}
-      {/* <section className={styles.grid}>
-        <div className={styles.card}>
-          <h3>Results-Driven</h3>
-          <p>Everything we build is focused on growth and performance.</p>
-        </div>
-
-        <div className={styles.card}>
-          <h3>User First</h3>
-          <p>We design with real users in mind, not just aesthetics.</p>
-        </div>
-
-        <div className={styles.card}>
-          <h3>Scalable</h3>
-          <p>Our solutions grow with your business.</p>
-        </div>
-      </section> */}
-
-      {/* VALUES */}
-      {/* <section className={styles.sectionDark}>
-        <h2>Our Values</h2>
-        <ul>
-          <li><strong>Ownership:</strong> We take responsibility for everything we build.</li>
-          <li><strong>Creativity:</strong> We turn ideas into meaningful experiences.</li>
-          <li><strong>Simplicity:</strong> Clear solutions over complexity.</li>
-        </ul>
-      </section> */}
-
-      {/* STATS */}
-      {/* <section className={styles.stats}>
-        <div>
-          <h3>100+</h3>
-          <p>Projects</p>
-        </div>
-        <div>
-          <h3>50+</h3>
-          <p>Clients</p>
-        </div>
-        <div>
-          <h3>5★</h3>
-          <p>Satisfaction</p>
-        </div>
-      </section> */}
-
-    <div className={home.borderedSec}>
-          <h3>Let's Create Something Amazing</h3>
+<div className={style.storySection}>
+        <h3 style={{color:"#cfb361"}}>Clients Feedback</h3>
+        <div className={style.storySteps}>
+          <p>“Professional approach and consistent quality.”</p>
+          <p>“Clear communication and reliable delivery.”</p>
+          <p>“A team that understands business needs.”</p>
+      </div>
+      </div>
+    <div className={home.borderedSec} style={{marginTop:"0"}}>
+          <h3>Let’s Work Together</h3>
         
           <p className={home.subtitle}>
-            Ready to bring your vision to life? Get in touch and let's start building together.
+            If you’re looking for a reliable partner to support your digital growth,
+             we’d be happy to connect.
           </p>
         
           <div className={home.contactList}>
-            
+            <div className={home.contactItem}>
+              <div className={home.icon}>
+                <FaPhone />
+              </div>
+              <div>
+                <h4>Phone</h4>
+                <p>+974 50662121</p>
+              </div>
+            </div>
             <div className={home.contactItem}>
               <div className={home.icon}>
                 <FaEnvelope />
               </div>
               <div>
                 <h4>Email</h4>
-                <p>hello@company.com</p>
+                <p>output.website@outlook.com</p>
               </div>
             </div>
         
-            <div className={home.contactItem}>
+             <div className={home.contactItem}>
+              <div className={home.icon}>
+                <FaLocationArrow />
+              </div>
+              <div>
+                <h4>Location</h4>
+                <p>Doha, Qatar</p>
+              </div>
+            </div>
+             <div className={home.contactItem}>
               <div className={home.icon}>
                 <FaInstagram />
               </div>
               <div>
                 <h4>Instagram</h4>
-                <p>@account</p>
+                <Link style={{ color:"black" }} to="https://www.instagram.com/output.qa/" target='_blank'>@output.qa</Link>
               </div>
             </div>
         

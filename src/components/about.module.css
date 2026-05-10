@@ -27,6 +27,7 @@
   line-height: 1.2;
   font-weight: 700;
   margin-bottom: 20px;
+  color: #011029;
 }
 
 .storyContent .storyContentHeading span {
@@ -39,44 +40,55 @@
   margin-bottom: 16px;
   max-width: 520px;
 }
+.storySection {
+  padding: 60px 20px;
+  background: #fff; /* dark elegant background */
+  text-align: center;
+}
+
+.storySection h3 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #cfb361;
+  letter-spacing: 1px;
+}
+
 .storySteps {
   display: flex;
-  flex-direction: column;
   gap: 20px;
-}
-
-.step {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-
-  padding: 16px 18px;
-  /* border-radius: 16px; */
-
-  background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.05);
-
-  transition: all 0.3s ease;
-}
-
-.step:hover {
-  transform: translateX(6px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-}
-.step span {
-  font-size: 14px;
-  font-weight: 700;
-
-  width: 36px;
-  height: 36px;
-
-  display: flex;
-  align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+}
 
-  border-radius: 10px;
-  background: linear-gradient(135deg, #f0f2f1, #ffffff);
+.storySteps p {
+  background: #fff;
+  color: #555;
+  padding: 20px 25px;
+  border-radius: 12px;
+  max-width: 280px;
+  font-size: 16px;
+  line-height: 1.6;
+  font-style: italic;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+/* Hover effect */
+.storySteps p:hover {
+  /* transform: translateY(-8px); */
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: quote mark decoration */
+.storySteps p::before {
+  content: "“";
+  font-size: 40px;
   color: #cfb361;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  opacity: 0.3;
 }
 .mvSection {
   padding: 100px 0;
@@ -149,7 +161,7 @@
 }
 .valuesSection {
   padding: 100px 0;
-  background: #ffffff;
+  background: linear-gradient(135deg, #ffffff, #f0f2f1);
 }
 
 .valuesHeader {
